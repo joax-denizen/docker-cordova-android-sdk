@@ -30,6 +30,8 @@ RUN touch /root/.android/repositories.cfg
 
 # Install Gulp and Cordova
 RUN npm install -g gulp@latest
+RUN npm install -g bower@latest
+RUN npm install -g ionic@latest
 
 ENV GRADLE_USER_HOME /src/gradle
 VOLUME /src

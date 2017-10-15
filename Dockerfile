@@ -12,7 +12,13 @@ RUN npm -v
 RUN npm cache clean --force
 
 # download and extract android sdk
-RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/
+# RUN curl http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar xz -C /usr/local/
+RUN cd /usr/local/ \
+  && wget -q https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz -O android-sdk.tgz \
+  && tar -xvzf android-sdk.tgz \
+  && rm -f android-sdk.tgz \
+  && chown -R root:root /usr/local
+
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 

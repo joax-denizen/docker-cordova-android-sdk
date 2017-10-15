@@ -26,6 +26,8 @@ ENV PATH $PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sdk-linux/tools/android update sdk --no-ui -a --filter platform-tool,build-tools-25.0.2,build-tools-26.0.1,android-25,android-26; \
     find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
 
+RUN touch /root/.android/repositories.cfg
+
 # Install Gulp and Cordova
 RUN npm install -g gulp@latest
 

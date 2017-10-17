@@ -5,7 +5,6 @@ apt-get update && \
 apt-get upgrade -y && \
 apt-get install -y lib32stdc++6 lib32z1 nodejs git tar bzip2 python build-essential
 
-RUN cordova -v
 RUN npm -v
 
 # Latest NPM Node
@@ -33,7 +32,6 @@ RUN touch /root/.android/repositories.cfg
 RUN npm install -g gulp@latest
 RUN npm install -g bower@latest
 RUN npm install -g ionic@latest
-RUN npm install -g cordova-deploy@latest
 
 ENV GRADLE_USER_HOME /src/gradle
 VOLUME /src

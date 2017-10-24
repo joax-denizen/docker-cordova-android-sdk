@@ -5,8 +5,6 @@ apt-get update && \
 apt-get upgrade -y && \
 apt-get install -y lib32stdc++6 lib32z1 nodejs git tar bzip2 python build-essential
 
-RUN npm -v
-
 # Latest NPM Node
 # RUN npm install -g npm@latest
 RUN npm cache clean --force
@@ -27,6 +25,9 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sd
     find /usr/local/android-sdk-linux -perm 0744 | xargs chmod 755
 
 RUN touch /root/.android/repositories.cfg
+
+# Upgrade Cordova to Latest
+RUN npm install -g --unsafe-perm cordova@latest
 
 # Install Gulp and Cordova
 RUN npm install -g gulp@latest

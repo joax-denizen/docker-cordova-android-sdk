@@ -40,3 +40,5 @@ RUN npm install -g bower@latest
 ENV GRADLE_USER_HOME /src/gradle
 VOLUME /src
 WORKDIR /src
+
+RUN npm install -g cordova@latest

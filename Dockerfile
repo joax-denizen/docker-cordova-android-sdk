@@ -31,9 +31,9 @@ RUN npm install -g ionic@latest
 RUN npm install -g --unsafe-perm cordova@latest
 RUN npm install -g cordova-lib@latest
 RUN npm install -g cordova-common@latest
+RUN npm install -g fastlane@latest
 
-
-# Install Gulp and Cordova
+# Install Gulp and Bower
 RUN npm install -g gulp@latest
 RUN npm install -g bower@latest
 

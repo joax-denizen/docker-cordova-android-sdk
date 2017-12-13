@@ -3,7 +3,7 @@ FROM beevelop/cordova:latest
 RUN \
 apt-get update && \
 apt-get upgrade -y && \
-apt-get install -y lib32stdc++6 lib32z1 nodejs git tar bzip2 python build-essential jq
+apt-get install -y lib32stdc++6 lib32z1 nodejs git tar bzip2 python build-essential jq ssh
 
 # Latest NPM Node
 # RUN npm install -g npm@latest

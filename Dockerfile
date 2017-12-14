@@ -5,6 +5,11 @@ apt-get update && \
 apt-get upgrade -y && \
 apt-get install -y lib32stdc++6 lib32z1 nodejs git tar bzip2 python build-essential jq ssh
 
+# Install Ruby.
+RUN \
+  apt-get update && \
+  apt-get install -y ruby-dev ruby
+
 # Latest NPM Node
 # RUN npm install -g npm@latest
 RUN npm cache clean --force
@@ -26,12 +31,14 @@ RUN ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | /usr/local/android-sd
 
 RUN touch /root/.android/repositories.cfg
 
+# Install Fastlane (for CI deployments)
+RUN gem install fastlane --no-rdoc --no-ri
+
 # Upgrade Cordova to Latest
 RUN npm install -g ionic@latest
 RUN npm install -g --unsafe-perm cordova@latest
 RUN npm install -g cordova-lib@latest
 RUN npm install -g cordova-common@latest
-RUN npm install -g fastlane@latest
 
 # Install Gulp and Bower
 RUN npm install -g gulp@latest
